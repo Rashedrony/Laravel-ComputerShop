@@ -17,8 +17,8 @@ class PagesController extends Controller
     }
     public function services(){
         $data = array (
-            'title' => 'Products Catagory',
-            'services' => ['Asus Products', 'Dell products', 'Lg Products', 'Hp Products', 'Lenevo Products','Acer Products','Other Accessories','Monitors']
+           'title' => 'Products Catagory',
+            'services' => ['All Accessories','All Items']
         );
         return view('pages.services')->with($data);
     }
