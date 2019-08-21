@@ -50,12 +50,31 @@ class PostController extends Controller
         $posts = Post::orderBy('created_at', 'desc')
             ->where('title', 'like', '%'.$search_text.'%')
             ->orwhere('body', 'like', '%'.$search_text.'%')
-            
-            
-            ->paginate(10);
         
+        
+            ->paginate(10);
+    
             return view('posts.index')->withposts($posts);
     }
+
+
+    //find Catagory..........................
+
+    public function findcat(Request $request){
+        $button = $request->button;
+        $posts = Post::orderBy('created_at', 'desc')
+            ->where('title', 'like', '%'.$button.'%')
+            ->orwhere('body', 'like', '%'.$button.'%')
+        
+        
+            ->paginate(10);
+    
+            return view('posts.index')->withposts($posts);
+    }
+
+
+
+
 
     /**
      * Store a newly created resource in storage.

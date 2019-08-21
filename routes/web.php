@@ -23,3 +23,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('/search', 'PostController@search')->name('search');
+
+Route::get('/findcat', 'PostController@findcat')->name('findcat');
