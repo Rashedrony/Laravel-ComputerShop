@@ -45,7 +45,17 @@ class PostController extends Controller
     }
 
 //search.................................................
- 
+    public function search(Request $request){
+        $search_text = $request->search;
+        $posts = Post::orderBy('created_at', 'desc')
+            ->where('title', 'like', '%'.$search_text.'%')
+            ->orwhere('body', 'like', '%'.$search_text.'%')
+            
+            
+            ->paginate(10);
+        
+            return view('posts.index')->withposts($posts);
+    }
 
     /**
      * Store a newly created resource in storage.
